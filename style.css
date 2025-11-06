@@ -1,3 +1,69 @@
 body{
-    background:grey;
+    background-image:url(backgroundapp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #333333;
+}
+.play-button-link {
+    /* Set size and make it a block element */
+    display:flex; 
+    width: 100px;
+    height: 100px;
+    
+    /* Make it a circle */
+    border-radius: 50%; 
+    background-color: rgb(114, 159, 122);; /* Red circle background */
+    
+    /* Center the icon inside the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Remove default link underline */
+    text-decoration: none; 
+    
+}
+
+.play-icon {
+    /* Creates the triangular play icon using borders */
+    width: 0; 
+    height: 0;
+    
+    /* This creates the right-pointing triangle */
+    border-top: 15px solid transparent; 
+    border-bottom: 15px solid transparent;
+    border-left: 25px solid  rgb(175, 206, 180); /* The visible part of the triangle */
+    
+    /* Adjust position to visually center the triangle */
+    transform: translateX(3px); 
+}
+
+/* Optional: Hover effect for better user feedback */
+.play-button-link:hover {
+    background-color: #679c5796; /* Darker red on hover */
+    cursor: pointer;
+}
+
+.pause-button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    background-color: #ff0000; /* Red circle background */
+    text-decoration: none; 
+    /* Add centering properties to the body as before */
+}
+.pause-bar {
+    width: 10px;           /* Width of each bar */
+    height: 35px;          /* Height of each bar */
+    background-color: rgba(175, 206, 180); /* Color of the bars */
+}
+
+/* Add space between the two bars */
+.bar-left {
+    margin-right: 8px; /* Space to the right of the left bar */
 }

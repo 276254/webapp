@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+ <body>
+    <head>
+       <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Relax</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link rel="apple-touch-icon" href="favicon.png">
+        <meta name="apple-mobile-web-app-title" content="Relax">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <style>
+            body{
+                min-height: 100vh;
+                margin: 0; 
+                display: flex;
+                justify-content: center; /* Horizontal Center */
+                align-items: center;     /* Vertical Center */
+                background-color: #69af6d;
+
+                .pause-button-link{
+                display: flex; 
+                width: 100px;
+                height: 100px;
+                border-radius: 50px; 
+                border-color:rgb(114, 159, 122);
+                background-color: #9fcfa286;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.539);
+                transform:translateY(150px)
+                }
+            
+                .bar-left {
+            /* Creates the separation */
+            margin-right: 8px; 
+                }
+
+                .pause-button-link:hover {
+                background-color: #679c5796;
+                transform: scale(1.1); 
+                transform: translateY(145px);
+                }
+            }
+        </style>
+    </head>
+ <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+            <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+       <a href="index.html" class="pause-button-link">
+        <div class="pause-bar bar-left"></div>
+        <div class="pause-bar bar-right"></div>
+    </a>
+        <script src="scripts.js" async defer></script>
+    </body>
+</html>
