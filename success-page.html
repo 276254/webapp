@@ -4,7 +4,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
- <body>
     <head>
        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +16,10 @@
         <meta name="apple-mobile-web-app-title" content="Relax">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script src="https://www.youtube.com/iframe_api"></script>
 
         <style>
+            
             body{
                 min-height: 100vh;
                 margin: 0; 
@@ -26,46 +27,96 @@
                 justify-content: center; /* Horizontal Center */
                 align-items: center;     /* Vertical Center */
                 background-color: #69af6d;
+            }
 
-                .pause-button-link{
+            .pause-button-link{
                 display: flex; 
                 width: 100px;
                 height: 100px;
                 border-radius: 50px; 
                 border-color:rgb(114, 159, 122);
                 background-color: #9fcfa286;
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 text-decoration: none; 
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.539);
-                transform:translateY(150px)
-                }
-            
-                .bar-left {
-            /* Creates the separation */
-            margin-right: 8px; 
-                }
-
-                .pause-button-link:hover {
-                background-color: #679c5796;
-                transform: scale(1.1); 
-                transition: all 0.2s ease-in-out;
-                transform: translateY(145px);
-                }
+                transform: translateY(150px);
             }
-            
-                
+
+            .bar-left {
+                /* Creates the separation */
+                margin-right: 8px; 
+            }
+            .pause-button-link:hover {
+                background-color: #679c5796;
+                transform: scale(1.1) translateY(145px); 
+                transition: all 0.2s ease-in-out;
+            }
+            #audio-player {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            opacity: 0;
+        }
         </style>
     </head>
- <body>
+  <body>
             <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-       <a href="index.html" class="pause-button-link">
-        <div class="pause-bar bar-left"></div>
-        <div class="pause-bar bar-right"></div>
-    </a>
-        <script src="scripts.js" async defer></script>
+        <div id="audio-player"></div>
+
+        <!-- Pause toggle anchor: href="#" is valid and will not navigate away when handled by JS -->
+        
+        <!-- Link back to index if needed -->
+        <a href="index.html" class="pause-button-link" title="Back to home">
+            <div class="pause-bar bar-left"></div>
+            <div class="pause-bar bar-right"></div>
+        </a>
+
+        <script>
+    let player;
+    // Replace 'dQw4w9WgXcQ' with your actual YouTube Video ID
+    const videoId = 'o8GrqUSdzi0'; 
+    const button = document.getElementById('musicToggle');
+
+    // This function is automatically called when the IFrame API is ready
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('audio-player', {
+            // Set dimensions to 1x1 to hide the video frame
+            height: '1', 
+            width: '1',
+            videoId: videoId,
+            playerVars: {
+                'autoplay':1,
+                'controls': 0,      // Hide YouTube controls
+                'disablekb': 1,     // Disable keyboard controls
+                'iv_load_policy': 3 // Hide annotations
+            },
+            events: {
+                // Call this function when the player is ready
+                'onReady': onPlayerReady,
+                // Call this function when the player state changes (playing, paused, etc.)
+                'onStateChange': onPlayerStateChange 
+            }
+        });
+    }
+
+    // Function called once the player is loaded and ready
+    function onPlayerReady(event) {
+        // Attach the click event handler to the button
+        button.addEventListener('click', togglePlayPause);
+    }
+    
+
+    // Function to update the button text based on player status
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            button.textContent = 'Pause Audio';
+        } else {
+            button.textContent = 'Play Audio';
+        }
+    }
+    </script>
     </body>
 </html>
