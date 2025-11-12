@@ -1,7 +1,7 @@
 // Global variable to hold the YouTube player object
-let player;ubNfkpbxXUs
+let player;o8GrqUSdzi0
 // Set your desired YouTube Video ID here!
-const videoId = 'ubNfkpbxXUs'; // <-- REPLACE this with your actual video ID
+const videoId = 'o8GrqUSdzi0'; // <-- REPLACE this with your actual video ID
 const toggleLink = document.getElementById('pause-toggle-link');
 
 // 1. This function is called automatically when the IFrame API is ready
