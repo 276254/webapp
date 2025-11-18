@@ -61,14 +61,9 @@
         </style>
     </head>
   <body>
-            <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+          
         <div id="audio-player"></div>
 
-        <!-- Pause toggle anchor: href="#" is valid and will not navigate away when handled by JS -->
-        
-        <!-- Link back to index if needed -->
         <a href="index.html" class="pause-button-link" title="Back to home">
             <div class="pause-bar bar-left"></div>
             <div class="pause-bar bar-right"></div>
@@ -76,14 +71,14 @@
 
         <script>
     let player;
-    // Replace 'dQw4w9WgXcQ' with your actual YouTube Video ID
+   
     const videoId = 'o8GrqUSdzi0'; 
     const button = document.getElementById('musicToggle');
 
-    // This function is automatically called when the IFrame API is ready
+    
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('audio-player', {
-            // Set dimensions to 1x1 to hide the video frame
+           
             height: '1', 
             width: '1',
             videoId: videoId,
@@ -94,22 +89,22 @@
                 'iv_load_policy': 3 // Hide annotations
             },
             events: {
-                // Call this function when the player is ready
+                
                 'onReady': onPlayerReady,
-                // Call this function when the player state changes (playing, paused, etc.)
+                
                 'onStateChange': onPlayerStateChange 
             }
         });
     }
 
-    // Function called once the player is loaded and ready
+    
     function onPlayerReady(event) {
-        // Attach the click event handler to the button
+      
         button.addEventListener('click', togglePlayPause);
     }
     
 
-    // Function to update the button text based on player status
+    
     function onPlayerStateChange(event) {
         if (event.data === YT.PlayerState.PLAYING) {
             button.textContent = 'Pause Audio';
